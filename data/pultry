@@ -1,0 +1,16 @@
+--- aggregates
+-- count()
+--- max(col)
+    -- min(col)
+    -- sum(col)
+    -- avg(col)
+    
+
+ -- select count() as [total orders] from [order]
+
+
+select c.categoryname as category
+from [product] as p
+join category as c
+on p.categoryid = c.id
+order by c.categoryname
