@@ -7,7 +7,13 @@ const router = express.Router();
 router.get('/', (req, res) => {
   Schemes.find()
     .then(schemes => {
-      res.json(schemes);
+      if(schemes){
+        res.json(schemes);
+      }else{
+        res.status(404).json({
+          message: 'Could not be completed schems 400 / ',schemes
+        })
+      }
     })
     .catch(err => {
       res.status(500).json({ message: 'Failed to get schemes' });

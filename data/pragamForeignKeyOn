@@ -1,0 +1,20 @@
+--- aggregates
+-- count()
+--- max(col)
+    -- min(col)
+    -- sum(col)
+    -- avg(col)
+    
+
+ -- select count() as [total orders] from [order]
+
+
+/*select c.categoryname as category, max(p.unitprice)
+from [product] as p
+join category as c
+on p.categoryid = c.id
+group by c.categoryname
+order by p.unitprice*/
+
+-- will turn on foreign keys
+pragma foreign_keys = on
