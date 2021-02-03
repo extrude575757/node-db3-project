@@ -4,19 +4,19 @@ const Schemes = require('./scheme-model.js');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async(req, res) => {
   Schemes.find()
     .then(schemes => {
       if(schemes){
         res.json(schemes);
       }else{
         res.status(404).json({
-          message: 'Could not be completed schems 400 / ',schemes
+          message: 'Could not be completed schems 400 /api/schemes/ ',schemes
         })
       }
     })
     .catch(err => {
-      res.status(500).json({ message: 'Failed to get schemes' });
+      res.status(500).json({ message: 'Failed to get schemes 500 GET //api/schemes/ ',err });
     });
 });
 
@@ -28,11 +28,11 @@ router.get('/:id', (req, res) => {
       if (scheme) {
         res.json(scheme);
       } else {
-        res.status(404).json({ message: 'Could not find scheme with given id.' })
+        res.status(404).json({ message: 'Could not find scheme with given id. 404 GET api/schemes/id ',scheme })
       }
     })
     .catch(err => {
-      res.status(500).json({ message: 'Failed to get schemes' });
+      res.status(500).json({ message: 'Failed to get schemes 500 GET /api/schemes/ID',err });
     });
 });
 
@@ -52,7 +52,7 @@ router.get('/:id/steps', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const schemeData = req.body;
 
   Schemes.add(schemeData)
