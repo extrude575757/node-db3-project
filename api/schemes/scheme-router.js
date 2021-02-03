@@ -93,14 +93,14 @@ router.put('/:id', (req, res) => {
       if (scheme) {
         return Schemes.update(changes, id);
       } else {
-        res.status(404).json({ message: 'Could not find scheme with given id' });
+        res.status(404).json({ message: 'Could not find scheme with given id PUT /api/shemes/id 404 ',Schemes });
       }
     })
     .then(updatedScheme => {
       res.json(updatedScheme);
     })
     .catch(err => {
-      res.status(500).json({ message: 'Failed to update scheme' });
+      res.status(500).json({ message: 'Failed to update scheme 500 PUT /apit/schemes/id ',err });
     });
 });
 
