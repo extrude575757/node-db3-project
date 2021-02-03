@@ -1,0 +1,2 @@
+select   * from [order] as o
+where o.OrderDate < '2012-09-01'

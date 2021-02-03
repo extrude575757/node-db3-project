@@ -1,0 +1,5 @@
+select *
+from customer as c
+left join [order] as o
+on c.Id = o.CustomerId
+order by c.Id

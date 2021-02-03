@@ -1,0 +1,4 @@
+SELECT p.Id , p.ProductName,* from [Product]  as p
+
+join [Category] on p.Id = [Category].Id 
+where [Category].Id < 10251

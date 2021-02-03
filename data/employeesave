@@ -1,0 +1,3 @@
+select employee.id, employee.FirstName, employee.LastName, employee.Title, [order].*
+from employee
+join [order] on employee.id = [order].EmployeeId
