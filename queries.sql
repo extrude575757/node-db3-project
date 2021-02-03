@@ -53,10 +53,34 @@ join [Order] on [Order].Id
 where [Order].Id = 10251
 
 
+SELECT p.Id , p.ProductName, p.QuantityPerUnit, * from [Product]  as p
+
+join [Order] on [Order].Id 
+
+where [Order].Id * p.Id = 10251
+
+---
+SELECT p.Id , p.ShipName, * from [Order]  as p
+
+join [Product] on [Product].Id 
+
+where p.Id = 10251
+
+
+SELECT p.Id , p.ShipName, * from [Order]  as p
+
+join [Product] on   [Product].Id
+
+where [Product].Id * p.Id = 10251
+
 
 
 
 -- Display the OrderID, Customer's Company Name and the employee's LastName for every order. All columns should be labeled clearly. Displays 16,789 records.
 
+SELECT p.Id , p.ShipName, * from [Order]  as p
+join [Product] on   [Product].Id * [Product].ProductName
+join [Employee] on   [Employee].Id * [Employee].FirstName
 
+where [Product].Id * p.Id   ;
 
